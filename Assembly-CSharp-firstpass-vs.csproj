@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{1F56F571-4B1D-BA41-E1AE-F93B32048C98}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_1_3;UNITY_5_1;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_LICENSE;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_EDITOR_METRICS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Plugins\ChatApi\ChatChannel.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatClient.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatDisconnectCause.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatEventCode.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatOperationCode.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatParameterCode.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatPeer.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatState.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\ChatUserStatus.cs" />
+     <Compile Include="Assets\Plugins\ChatApi\IChatClientListener.cs" />
+     <Compile Include="Assets\Plugins\WebSocket\WebSocket.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\Comparisons.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\CreateRandoms.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\DebugLibrary.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\DestroyLibrary.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\EntityTransform.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\GameObjects.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\Interval.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\Log.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\LoopEntities.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\MathLibrary.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\MoveInDirectionOverTime.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\SetLibrary.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\Timer.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\UFAction.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\Vector2Library.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\Vector3Library.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Actions\uGUILibrary.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\ComponentCreatedEvent.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\ComponentDestroyedEvent.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\IComponentSystem.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\IEcsComponent.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\IEcsComponentManager.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\IEcsComponentManagerOf.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\IEcsSystem.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Api\ISystemUpdate.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\EcsComponent.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\EcsComponentManager.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\EcsComponentManagerOf.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\EcsDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\Entity.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\GroupItem.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\IGroup.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\IReactiveGroup.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Component\ReactiveGroup.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Systems\EcsComponentService.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Systems\EcsSystem.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Systems\EcsSystemExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\BecameInvisibleDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\BecameVisibleDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\BeginDragDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\CancelDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\DeselectDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\Despawn.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\DespawnEntity.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\DragDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\DropDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\EndDragDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\EntityPrefab.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\EntityPrefabPool.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\EntityService.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\MouseDownDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\MouseDragDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\MouseEnterDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\MouseExitDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\MouseUpDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\MoveDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnCollisionEnter2DDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnCollisionEnterDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnCollisionExit2DDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnCollisionExitDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnCollisionStay2DDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnCollisionStayDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnTriggerEnter2DDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnTriggerEnterDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnTriggerExit2DDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnTriggerExitDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnTriggerStay2DDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\OnTriggerStayDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\PointerClickDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\PointerDownDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\PointerEnterDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\PointerExitDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\PointerUpDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\ScrollDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\SelectDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\Spawn.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\SpawnEntity.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\Dispatchers\SubmitDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\EcsSystemLoader.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\EcsSystemLoaderExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame.ECS\Unity\UnityComponentSystem.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample01_ObservableWWW.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample02_ObservableTriggers.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample03_GameObjectAsObservable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample04_ConvertFromUnityCallback.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample05_ConvertFromCoroutine.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample06_ConvertToCoroutine.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample07_OrchestratIEnumerator.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample08_DetectDoubleClick.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample09_EventHandling.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample10_MainThreadDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample11_Logger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample12_ReactiveProperty.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample13_ToDoApp.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample14_CubeLevel1.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample14_CubeLevel2.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Examples\Sample14_PresenterBase.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Asynchronous\WebRequestExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\BooleanDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\CompositeDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\Disposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\DisposableExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\ICancelable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\MultipleAssignmentDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\RefCountDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\ScheduledDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\SerialDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Disposables\SingleAssignmentDisposable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\EventPattern.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\InternalUtil\ImmutableList.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\InternalUtil\ListObserver.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\InternalUtil\PriorityQueue.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\InternalUtil\ReflectionAccessor.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\InternalUtil\ScheduledItem.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\InternalUtil\ThreadSafeQueueWorker.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Notification.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Notifiers\BooleanNotifier.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Notifiers\CountNotifier.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Notifiers\MessageBroker.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Notifiers\ScheduledNotifier.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Aggregate.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Binding.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Blocking.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Concatenate.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Concurrency.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Conversions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Creation.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.ErrorHandling.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Events.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.FromAsync.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Joins.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Paging.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.Time.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Observer.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Operators\OperatorObservableBase.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Operators\OperatorObserverBase.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Operators\Select.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Schedulers\CurrentThreadScheduler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Schedulers\IScheduler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Schedulers\ImmediateScheduler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Schedulers\Scheduler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Schedulers\ThreadPoolScheduler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Subjects\AsyncSubject.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Subjects\BehaviorSubject.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Subjects\ConnectableObservable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Subjects\ISubject.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Subjects\ReplaySubject.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Subjects\Subject.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\System\IObservable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\System\IObserver.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\System\IOptimizedObservable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\System\IProgress.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\System\Tuple.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\System\Unit.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\TimeInterval.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\Timestamped.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\AotSafeExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\AsyncOperationExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\CancellationToken.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Diagnostics\LogEntry.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Diagnostics\LogEntryExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Diagnostics\Logger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Diagnostics\ObservableLogger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Diagnostics\UnityDebugSink.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\InspectableReactiveProperty.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\InspectorDisplayDrawer.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\LazyTask.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\LifetimeDisposableExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\MainThreadDispatcher.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\MainThreadScheduler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Observable.Unity.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ObservableMonoBehaviour.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ObservableWWW.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ObserveExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\PresenterBase.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ReactiveCollection.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ReactiveDictionary.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ReactiveProperty.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\ScenePlaybackDetector.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableAnimatorTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableBeginDragTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableCancelTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableCanvasGroupChangedTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableCollision2DTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableCollisionTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableDeselectTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableDestroyTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableDragTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableDropTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableEnableTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableEndDragTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableEventTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableFixedUpdateTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableInitializePotentialDragTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableLateUpdateTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableMouseTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableMoveTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservablePointerClickTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservablePointerDownTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservablePointerEnterTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservablePointerExitTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservablePointerUpTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableRectTransformTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableScrollTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableSelectTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableStateMachineTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableSubmitTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableTransformChangedTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableTrigger2DTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableTriggerBase.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableTriggerExtensions.Component.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableTriggerExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableTriggerTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableUpdateSelectedTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableUpdateTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\Triggers\ObservableVisibleTrigger.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\TypedMonoBehaviour.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\UnityEventExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\UnityGraphicExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\UnityUIComponentExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityEngineBridge\YieldInstructionCache.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityWinRTBridge\Thread.cs" />
+     <Compile Include="Assets\Plugins\uFrame\UniRx\Scripts\UnityWinRTBridge\ThreadPoolScheduler_UnityWinRT.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\EventAggregator.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\IDisposableContainer.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\IEventAggregator.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\IScene.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\ISceneLoader.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\ISystemLoader.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\ISystemService.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Scene.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SceneLoader.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SceneManagementService.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SceneSettings.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\DefaultTypeResolver.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\ISerializer.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\ISerializerStorage.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\ISerializerStream.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\ITypeResolver.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\IUFSerializable.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\Json\JsonStream.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\Serialization.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\Storage\FileSerializerStorage.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\Serialization\Storage\StringSerializerStorage.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SimpleSubject.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SystemControllerExtensions.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SystemService.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\SystemServiceMonoBehavior.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\UnityMVVM\INotifyCollectionChanged.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\UnityMVVM\NotifyCollectionChangedAction.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\UnityMVVM\NotifyCollectionChangedEventArgs.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\UnityMVVM\NotifyCollectionChangedEventHandler.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\UnityMVVM\ObservableCollection.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\uFrameComponent.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\uFrameKernel.cs" />
+     <Compile Include="Assets\Plugins\uFrame\uFrameKernel\uFrameMVVMKernel.cs" />
+     <None Include="Assets\Plugins\uFrame-ECS-Readme.txt" />
+     <None Include="Assets\Plugins\Photon3Unity3D.xml" />
+     <None Include="Assets\Plugins\release_history.txt" />
+     <None Include="Assets\Plugins\Editor\uFrame\uFrame.Resources\Resources\uFrameReadme.txt" />
+     <None Include="Assets\Plugins\uFrame\UniRx\ReadMe.txt" />
+     <None Include="Assets\Photon Unity Networking\readme.txt" />
+     <None Include="Assets\Photon Unity Networking\changelog.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Photon3Unity3D">
+ <HintPath>D:/Unity/DireDungeons/Proto_2/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="Invert.uFrame">
+ <HintPath>D:/Unity/DireDungeons/Proto_2/Assets/Plugins/uFrame/Invert.uFrame.dll</HintPath>
+ </Reference>
+ <Reference Include="websocket-sharp">
+ <HintPath>D:/Unity/DireDungeons/Proto_2/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

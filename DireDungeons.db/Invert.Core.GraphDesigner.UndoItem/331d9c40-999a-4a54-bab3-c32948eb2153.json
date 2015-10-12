@@ -1,0 +1,8 @@
+{
+	"Identifier":"331d9c40-999a-4a54-bab3-c32948eb2153"	, 
+	"Time":"10/11/2015 11:33:31 PM"	, 
+	"Group":233331	, 
+	"DataRecordId":"9801916e-83b4-49b9-873e-435c4009a603"	, 
+	"Type":2	, 
+	"RecordType":"Invert.uFrame.ECS.EcsWorkspace, Invert.uFrame.ECS.Editor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"	, 
+	"Data":"{\r\n\t\"Identifier\":\"9801916e-83b4-49b9-873e-435c4009a603\"\t, \r\n\t\"Name\":\"Bunzaga\"\t, \r\n\t\"CurrentGraphId\":\"22bfefea-cabb-4f09-861d-beaf3a2b59ce\"\t, \r\n\t\"Expanded\":false}\r\n"}
