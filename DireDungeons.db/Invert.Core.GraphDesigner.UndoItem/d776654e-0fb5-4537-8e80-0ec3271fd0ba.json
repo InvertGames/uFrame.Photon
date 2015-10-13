@@ -1,0 +1,8 @@
+{
+	"Identifier":"d776654e-0fb5-4537-8e80-0ec3271fd0ba"	, 
+	"Time":"10/12/2015 7:20:47 PM"	, 
+	"Group":192047	, 
+	"DataRecordId":"4f101bab-d06a-48da-ab88-077be88c892c"	, 
+	"Type":2	, 
+	"RecordType":"Invert.uFrame.ECS.PublishEventNode, Invert.uFrame.ECS.Editor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"	, 
+	"Data":"{\r\n\t\"VariableName\":\"PublishEventNode17\"\t, \r\n\t\"GraphId\":\"e0c6c874-1675-4115-8a96-fdda84795166\"\t, \r\n\t\"Identifier\":\"4f101bab-d06a-48da-ab88-077be88c892c\"\t, \r\n\t\"Expanded\":false}\r\n"}

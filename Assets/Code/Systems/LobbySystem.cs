@@ -25,6 +25,8 @@ namespace DireDungeons {
         
         private IEcsComponentManagerOf<LobbyMenu> _LobbyMenuManager;
         
+        private IEcsComponentManagerOf<UpdateConnected> _UpdateConnectedManager;
+        
         private LobbySystemPointerClickHandler LobbySystemPointerClickHandlerInstance = new LobbySystemPointerClickHandler();
         
         private LobbySystemOnConnectedToMasterHandler LobbySystemOnConnectedToMasterHandlerInstance = new LobbySystemOnConnectedToMasterHandler();
@@ -49,10 +51,20 @@ namespace DireDungeons {
             }
         }
         
+        public IEcsComponentManagerOf<UpdateConnected> UpdateConnectedManager {
+            get {
+                return _UpdateConnectedManager;
+            }
+            set {
+                _UpdateConnectedManager = value;
+            }
+        }
+        
         public override void Setup() {
             base.Setup();
             LobbyButtonManager = ComponentSystem.RegisterComponent<LobbyButton>();
             LobbyMenuManager = ComponentSystem.RegisterComponent<LobbyMenu>();
+            UpdateConnectedManager = ComponentSystem.RegisterComponent<UpdateConnected>();
             this.OnEvent<uFrame.ECS.PointerClickDispatcher>().Subscribe(_=>{ LobbySystemPointerClickFilter(_); }).DisposeWith(this);
             this.OnEvent<uFrame.ECS.OnConnectedToMasterDispatcher>().Subscribe(_=>{ LobbySystemOnConnectedToMasterFilter(_); }).DisposeWith(this);
         }
@@ -89,7 +101,7 @@ namespace DireDungeons {
             this.LobbySystemOnConnectedToMasterHandler(data, SourceLobbyMenu);
         }
         
-        protected void LobbySystemUpdateHandler(LobbyMenu group) {
+        protected void LobbySystemUpdateHandler(UpdateConnected group) {
             var handler = LobbySystemUpdateHandlerInstance;
             handler.System = this;
             handler.Group = group;
@@ -97,11 +109,11 @@ namespace DireDungeons {
         }
         
         protected void LobbySystemUpdateFilter() {
-            var LobbyMenuItems = LobbyMenuManager.Components;
-            for (var LobbyMenuIndex = 0
-            ; LobbyMenuIndex < LobbyMenuItems.Count; LobbyMenuIndex++
+            var UpdateConnectedItems = UpdateConnectedManager.Components;
+            for (var UpdateConnectedIndex = 0
+            ; UpdateConnectedIndex < UpdateConnectedItems.Count; UpdateConnectedIndex++
             ) {
-                this.LobbySystemUpdateHandler(LobbyMenuItems[LobbyMenuIndex]);
+                this.LobbySystemUpdateHandler(UpdateConnectedItems[UpdateConnectedIndex]);
             }
         }
         

@@ -23,9 +23,7 @@ namespace DireDungeons {
         
         private Subject<GameObject> _obj_ConnectingObservable;
         
-        private Subject<GameObject> _txt_ConnectingObservable;
-        
-        private Subject<Boolean> _ConnectedObservable;
+        private Subject<GameObject> _obj_txtConnectingObservable;
         
         private Subject<GameObject> _obj_RoomsObservable;
         
@@ -33,17 +31,14 @@ namespace DireDungeons {
         private GameObject _obj_Connecting;
         
         [UnityEngine.SerializeField()]
-        private GameObject _txt_Connecting;
-        
-        [UnityEngine.SerializeField()]
-        private Boolean _Connected;
+        private GameObject _obj_txtConnecting;
         
         [UnityEngine.SerializeField()]
         private GameObject _obj_Rooms;
         
         public int ComponentID {
             get {
-                return 1;
+                return 2;
             }
         }
         
@@ -56,21 +51,12 @@ namespace DireDungeons {
             }
         }
         
-        public IObservable<GameObject> txt_ConnectingObservable {
+        public IObservable<GameObject> obj_txtConnectingObservable {
             get {
-                if (_txt_ConnectingObservable == null) {
-                    _txt_ConnectingObservable = new Subject<GameObject>();
+                if (_obj_txtConnectingObservable == null) {
+                    _obj_txtConnectingObservable = new Subject<GameObject>();
                 }
-                return _txt_ConnectingObservable;
-            }
-        }
-        
-        public IObservable<Boolean> ConnectedObservable {
-            get {
-                if (_ConnectedObservable == null) {
-                    _ConnectedObservable = new Subject<Boolean>();
-                }
-                return _ConnectedObservable;
+                return _obj_txtConnectingObservable;
             }
         }
         
@@ -95,26 +81,14 @@ namespace DireDungeons {
             }
         }
         
-        public GameObject txt_Connecting {
+        public GameObject obj_txtConnecting {
             get {
-                return _txt_Connecting;
+                return _obj_txtConnecting;
             }
             set {
-                _txt_Connecting = value;
-                if (_txt_ConnectingObservable != null) {
-                    _txt_ConnectingObservable.OnNext(value);
-                }
-            }
-        }
-        
-        public Boolean Connected {
-            get {
-                return _Connected;
-            }
-            set {
-                _Connected = value;
-                if (_ConnectedObservable != null) {
-                    _ConnectedObservable.OnNext(value);
+                _obj_txtConnecting = value;
+                if (_obj_txtConnectingObservable != null) {
+                    _obj_txtConnectingObservable.OnNext(value);
                 }
             }
         }

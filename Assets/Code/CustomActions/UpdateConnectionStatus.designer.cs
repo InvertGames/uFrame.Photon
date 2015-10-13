@@ -20,7 +20,7 @@ namespace DireDungeons {
     [uFrame.Attributes.ActionTitle("UpdateConnectionStatus")]
     public partial class UpdateConnectionStatus : uFrame.Actions.UFAction {
         
-        [uFrame.Attributes.In("Obj_Connecting")]
-        public GameObject Obj_Connecting;
+        [uFrame.Attributes.In("Obj_TxtConnecting")]
+        public GameObject Obj_TxtConnecting;
     }
 }

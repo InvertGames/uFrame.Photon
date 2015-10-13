@@ -19,5 +19,8 @@ namespace DireDungeons {
     
     [uFrame.Attributes.ActionTitle("EnterRoom")]
     public partial class EnterRoom : uFrame.Actions.UFAction {
+        
+        [uFrame.Attributes.In("RoomId")]
+        public String RoomId;
     }
 }

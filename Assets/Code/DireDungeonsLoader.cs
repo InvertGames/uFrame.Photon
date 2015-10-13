@@ -25,6 +25,7 @@ namespace DireDungeons {
             system = this.AddSystem<LobbySystem>();
             system = this.AddSystem<RoomSystem>();
             system = this.AddSystem<PhotonSystem>();
+            system = this.AddSystem<Kernel>();
         }
     }
 }

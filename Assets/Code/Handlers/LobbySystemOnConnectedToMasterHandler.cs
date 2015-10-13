@@ -31,7 +31,7 @@ namespace DireDungeons {
         
         private DireDungeons.ShowLobby ActionNode32 = new DireDungeons.ShowLobby();
         
-        private bool BoolNode46 = true;
+        private UnityEngine.MonoBehaviour ActionNode49_behaviour = default( UnityEngine.MonoBehaviour );
         
         public uFrame.ECS.OnConnectedToMasterDispatcher Event {
             get {
@@ -61,9 +61,10 @@ namespace DireDungeons {
             ActionNode32.Obj_Rooms = ActionNode32_Obj_Rooms;
             ActionNode32.System = System;
             ActionNode32.Execute();
-            // SetVariableNode
-            while (this.DebugInfo("6e6ab7ff-5ebc-47b4-86a9-26ce7c4ef0af","2e20ce5f-8751-44f4-abd1-c6ade61c5bf0", this) == 1) yield return null;
-            Source.Connected = (System.Boolean)BoolNode46;
+            // ActionNode
+            while (this.DebugInfo("6e6ab7ff-5ebc-47b4-86a9-26ce7c4ef0af","3441e635-5712-4096-aaa7-43b4ed1c16ae", this) == 1) yield return null;
+            // Visit uFrame.Actions.DestroyLibrary.DestroyComponent
+            uFrame.Actions.DestroyLibrary.DestroyComponent(ActionNode49_behaviour);
             yield break;
         }
     }

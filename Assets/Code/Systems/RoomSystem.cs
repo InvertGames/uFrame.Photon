@@ -21,8 +21,58 @@ namespace DireDungeons {
     [uFrame.Attributes.uFrameIdentifier("7861f7e2-991a-4c81-bea0-e945f831dda5")]
     public partial class RoomSystem : uFrame.ECS.EcsSystem {
         
+        private IEcsComponentManagerOf<LobbyButton> _LobbyButtonManager;
+        
+        private RoomSystemOnJoinedRoomHandler RoomSystemOnJoinedRoomHandlerInstance = new RoomSystemOnJoinedRoomHandler();
+        
+        private RoomSystemOnPhotonJoinRoomFailedHandler RoomSystemOnPhotonJoinRoomFailedHandlerInstance = new RoomSystemOnPhotonJoinRoomFailedHandler();
+        
+        public IEcsComponentManagerOf<LobbyButton> LobbyButtonManager {
+            get {
+                return _LobbyButtonManager;
+            }
+            set {
+                _LobbyButtonManager = value;
+            }
+        }
+        
         public override void Setup() {
             base.Setup();
+            LobbyButtonManager = ComponentSystem.RegisterComponent<LobbyButton>();
+            this.OnEvent<uFrame.ECS.OnJoinedRoomDispatcher>().Subscribe(_=>{ RoomSystemOnJoinedRoomFilter(_); }).DisposeWith(this);
+            this.OnEvent<uFrame.ECS.OnPhotonJoinRoomFailedDispatcher>().Subscribe(_=>{ RoomSystemOnPhotonJoinRoomFailedFilter(_); }).DisposeWith(this);
+        }
+        
+        protected void RoomSystemOnJoinedRoomHandler(uFrame.ECS.OnJoinedRoomDispatcher data, LobbyButton source) {
+            var handler = RoomSystemOnJoinedRoomHandlerInstance;
+            handler.System = this;
+            handler.Event = data;
+            handler.Source = source;
+            StartCoroutine(handler.Execute());
+        }
+        
+        protected void RoomSystemOnJoinedRoomFilter(uFrame.ECS.OnJoinedRoomDispatcher data) {
+            var SourceLobbyButton = LobbyButtonManager[data.EntityId];
+            if (SourceLobbyButton == null) {
+                return;
+            }
+            this.RoomSystemOnJoinedRoomHandler(data, SourceLobbyButton);
+        }
+        
+        protected void RoomSystemOnPhotonJoinRoomFailedHandler(uFrame.ECS.OnPhotonJoinRoomFailedDispatcher data, LobbyButton source) {
+            var handler = RoomSystemOnPhotonJoinRoomFailedHandlerInstance;
+            handler.System = this;
+            handler.Event = data;
+            handler.Source = source;
+            StartCoroutine(handler.Execute());
+        }
+        
+        protected void RoomSystemOnPhotonJoinRoomFailedFilter(uFrame.ECS.OnPhotonJoinRoomFailedDispatcher data) {
+            var SourceLobbyButton = LobbyButtonManager[data.EntityId];
+            if (SourceLobbyButton == null) {
+                return;
+            }
+            this.RoomSystemOnPhotonJoinRoomFailedHandler(data, SourceLobbyButton);
         }
     }
 }

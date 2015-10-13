@@ -1,8 +1,0 @@
-{
-	"Identifier":"90a5fa63-468f-4d16-8590-0023801bb685"	, 
-	"Time":"10/11/2015 11:31:16 PM"	, 
-	"Group":233116	, 
-	"DataRecordId":"8040825b-0686-4d1f-92b0-0fa136202dc5"	, 
-	"Type":1	, 
-	"RecordType":"Invert.uFrame.ECS.HandlerNode, Invert.uFrame.ECS.Editor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"	, 
-	"Data":"{\r\n\t\"CodeHandler\":false\t, \r\n\t\"MetaType\":\"uFrame.Kernel.GameReadyEvent\"\t, \r\n\t\"VariableCount\":0\t, \r\n\t\"VariableName\":\"HandlerNode33\"\t, \r\n\t\"Name\":\"LobbySystemGameReady\"\t, \r\n\t\"GraphId\":\"a5b0904a-c20c-4855-a042-fd23478a24e6\"\t, \r\n\t\"Identifier\":\"8040825b-0686-4d1f-92b0-0fa136202dc5\"\t, \r\n\t\"Expanded\":false}\r\n"}

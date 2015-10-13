@@ -4,21 +4,19 @@ namespace DireDungeons {
     using System.Collections.Generic;
     using System.Linq;
     using uFrame.ECS;
-    
+	using UnityEngine;
     
     public partial class TryJoinRoom {
-        
-        public override void Execute() {
 
-			if (PhotonNetwork.JoinRoom(RoomId)) {
-				if(null != Yes){
-					Yes();
-				}
-			} else {
-				if(null != No){
-					No();
-				}
-			}
+		public RoomOptions roomOptions;
+
+		public override void Execute() {
+			Debug.Log ("Trying to join room:"+RoomId);
+			roomOptions = new RoomOptions ();
+			roomOptions.maxPlayers = (byte)MaxPlayers;
+			roomOptions.customRoomProperties = new ExitGames.Client.Photon.Hashtable ();
+			roomOptions.customRoomProperties.Add ("map", RoomId);
+			PhotonNetwork.JoinOrCreateRoom (RoomId, roomOptions, TypedLobby.Default);
 		}
     }
 }

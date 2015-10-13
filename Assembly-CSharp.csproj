@@ -46,15 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\Components\Driver.cs" />
      <Compile Include="Assets\Code\Components\LobbyButton.cs" />
      <Compile Include="Assets\Code\Components\LobbyMenu.cs" />
      <Compile Include="Assets\Code\Components\PhotonComponent.cs" />
-     <Compile Include="Assets\Code\CustomActions\CreateNewRoom.cs" />
-     <Compile Include="Assets\Code\CustomActions\CreateNewRoom.designer.cs" />
+     <Compile Include="Assets\Code\Components\UpdateConnected.cs" />
      <Compile Include="Assets\Code\CustomActions\EnterRoom.cs" />
      <Compile Include="Assets\Code\CustomActions\EnterRoom.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\JoinRoom.cs" />
      <Compile Include="Assets\Code\CustomActions\JoinRoom.designer.cs" />
+     <Compile Include="Assets\Code\CustomActions\JoinRoomFailed.cs" />
+     <Compile Include="Assets\Code\CustomActions\JoinRoomFailed.designer.cs" />
+     <Compile Include="Assets\Code\CustomActions\LoadScene.cs" />
+     <Compile Include="Assets\Code\CustomActions\LoadScene.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\OnJoinRoom.cs" />
      <Compile Include="Assets\Code\CustomActions\OnJoinRoom.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\ShowLobby.cs" />
@@ -63,6 +67,8 @@
      <Compile Include="Assets\Code\CustomActions\TryConnectToPhoton.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\TryJoinRoom.cs" />
      <Compile Include="Assets\Code\CustomActions\TryJoinRoom.designer.cs" />
+     <Compile Include="Assets\Code\CustomActions\UnloadScene.cs" />
+     <Compile Include="Assets\Code\CustomActions\UnloadScene.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\UpdateConnectionStatus.cs" />
      <Compile Include="Assets\Code\CustomActions\UpdateConnectionStatus.designer.cs" />
      <Compile Include="Assets\Code\DireDungeonsLoader.cs" />
@@ -92,11 +98,20 @@
      <Compile Include="Assets\Code\Dispatchers\Photon\OnReceivedRoomListUpdateDispatcher.cs" />
      <Compile Include="Assets\Code\Dispatchers\Photon\OnUpdatedFriendListDispatcher.cs" />
      <Compile Include="Assets\Code\Dispatchers\Photon\OnWebRpcResponseDispatcher.cs" />
+     <Compile Include="Assets\Code\Events\LoadSceneEvent.cs" />
      <Compile Include="Assets\Code\Events\OnJoinRoom.cs" />
+     <Compile Include="Assets\Code\Events\UnloadSceneEvent.cs" />
+     <Compile Include="Assets\Code\Handlers\KernelGameReadyHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\KernelLoadSceneEventHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\KernelUnloadSceneEventHandler.cs" />
      <Compile Include="Assets\Code\Handlers\LobbySystemOnConnectedToMasterHandler.cs" />
      <Compile Include="Assets\Code\Handlers\LobbySystemPointerClickHandler.cs" />
      <Compile Include="Assets\Code\Handlers\LobbySystemUpdateHandler.cs" />
      <Compile Include="Assets\Code\Handlers\PhotonSystemGameReadyHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\RoomSystemOnJoinedRoomHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\RoomSystemOnPhotonJoinRoomFailedHandler.cs" />
+     <Compile Include="Assets\Code\Systems\Kernel.cs" />
+     <Compile Include="Assets\Code\Systems\KernelLoader.cs" />
      <Compile Include="Assets\Code\Systems\LobbySystem.cs" />
      <Compile Include="Assets\Code\Systems\LobbySystemLoader.cs" />
      <Compile Include="Assets\Code\Systems\PhotonSystem.cs" />

@@ -23,10 +23,7 @@ namespace DireDungeons {
         [uFrame.Attributes.In("RoomId")]
         public String RoomId;
         
-        [uFrame.Attributes.Out("Yes")]
-        public System.Action Yes;
-        
-        [uFrame.Attributes.Out("No")]
-        public System.Action No;
+        [uFrame.Attributes.In("MaxPlayers")]
+        public Int32 MaxPlayers;
     }
 }

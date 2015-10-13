@@ -23,12 +23,17 @@ namespace DireDungeons {
         
         private Subject<String> _RoomIdObservable;
         
+        private Subject<Int32> _MaxPlayersObservable;
+        
         [UnityEngine.SerializeField()]
         private String _RoomId;
         
+        [UnityEngine.SerializeField()]
+        private Int32 _MaxPlayers;
+        
         public int ComponentID {
             get {
-                return 2;
+                return 3;
             }
         }
         
@@ -41,6 +46,15 @@ namespace DireDungeons {
             }
         }
         
+        public IObservable<Int32> MaxPlayersObservable {
+            get {
+                if (_MaxPlayersObservable == null) {
+                    _MaxPlayersObservable = new Subject<Int32>();
+                }
+                return _MaxPlayersObservable;
+            }
+        }
+        
         public String RoomId {
             get {
                 return _RoomId;
@@ -49,6 +63,18 @@ namespace DireDungeons {
                 _RoomId = value;
                 if (_RoomIdObservable != null) {
                     _RoomIdObservable.OnNext(value);
+                }
+            }
+        }
+        
+        public Int32 MaxPlayers {
+            get {
+                return _MaxPlayers;
+            }
+            set {
+                _MaxPlayers = value;
+                if (_MaxPlayersObservable != null) {
+                    _MaxPlayersObservable.OnNext(value);
                 }
             }
         }
