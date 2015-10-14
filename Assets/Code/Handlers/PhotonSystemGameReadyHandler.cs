@@ -19,6 +19,8 @@ namespace DireDungeons {
     
     public class PhotonSystemGameReadyHandler {
         
+        public Driver Group;
+        
         private uFrame.Kernel.GameReadyEvent _Event;
         
         private uFrame.ECS.EcsSystem _System;
@@ -50,7 +52,7 @@ namespace DireDungeons {
         public virtual System.Collections.IEnumerator Execute() {
             ActionNode23_GameVersion = StringNode7;
             // ActionNode
-            while (this.DebugInfo("a580f04c-44e3-42c8-93b7-396f7ad3b9f6","1e28bd40-5c1e-4783-a79d-cf4ba795e9a9", this) == 1) yield return null;
+            while (this.DebugInfo("a96266ec-6324-47a3-948b-c690e9aaca89","1e28bd40-5c1e-4783-a79d-cf4ba795e9a9", this) == 1) yield return null;
             // Visit DireDungeons.TryConnectToPhoton
             ActionNode23.GameVersion = ActionNode23_GameVersion;
             ActionNode23.System = System;

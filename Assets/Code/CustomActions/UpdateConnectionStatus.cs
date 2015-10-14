@@ -8,7 +8,7 @@ namespace DireDungeons {
 	using UnityEngine.UI;
     
     public partial class UpdateConnectionStatus {
-		Text myText;
+		private Text myText;
 
         public override void Execute() {
 			if (Obj_TxtConnecting != null) {

@@ -13,11 +13,11 @@ namespace DireDungeons {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using uFrame.Kernel;
     using uFrame.ECS;
+    using uFrame.Kernel;
     
     
-    [uFrame.Attributes.uFrameIdentifier("7861f7e2-991a-4c81-bea0-e945f831dda5")]
+    [uFrame.Attributes.uFrameIdentifier("9b607ca7-ed5e-4fee-9b9b-ff55eafbe74d")]
     public partial class RoomSystemLoader : uFrame.Kernel.SystemLoader {
         
         public override void Load() {

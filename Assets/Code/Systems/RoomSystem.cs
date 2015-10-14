@@ -13,19 +13,26 @@ namespace DireDungeons {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using UniRx;
+    using DireDungeons;
     using uFrame.Kernel;
+    using UniRx;
     using uFrame.ECS;
     
     
-    [uFrame.Attributes.uFrameIdentifier("7861f7e2-991a-4c81-bea0-e945f831dda5")]
+    [uFrame.Attributes.uFrameIdentifier("9b607ca7-ed5e-4fee-9b9b-ff55eafbe74d")]
     public partial class RoomSystem : uFrame.ECS.EcsSystem {
         
         private IEcsComponentManagerOf<LobbyButton> _LobbyButtonManager;
         
-        private RoomSystemOnJoinedRoomHandler RoomSystemOnJoinedRoomHandlerInstance = new RoomSystemOnJoinedRoomHandler();
+        private IEcsComponentManagerOf<Room> _RoomManager;
         
-        private RoomSystemOnPhotonJoinRoomFailedHandler RoomSystemOnPhotonJoinRoomFailedHandlerInstance = new RoomSystemOnPhotonJoinRoomFailedHandler();
+        private IEcsComponentManagerOf<Driver> _DriverManager;
+        
+        private PhotonSystemOnJoinedRoomHandler PhotonSystemOnJoinedRoomHandlerInstance = new PhotonSystemOnJoinedRoomHandler();
+        
+        private PhotonSystemOnPhotonJoinRoomFailedHandler PhotonSystemOnPhotonJoinRoomFailedHandlerInstance = new PhotonSystemOnPhotonJoinRoomFailedHandler();
+        
+        private PhotonSystemLevelWasLoadedHandler PhotonSystemLevelWasLoadedHandlerInstance = new PhotonSystemLevelWasLoadedHandler();
         
         public IEcsComponentManagerOf<LobbyButton> LobbyButtonManager {
             get {
@@ -36,43 +43,81 @@ namespace DireDungeons {
             }
         }
         
+        public IEcsComponentManagerOf<Room> RoomManager {
+            get {
+                return _RoomManager;
+            }
+            set {
+                _RoomManager = value;
+            }
+        }
+        
+        public IEcsComponentManagerOf<Driver> DriverManager {
+            get {
+                return _DriverManager;
+            }
+            set {
+                _DriverManager = value;
+            }
+        }
+        
         public override void Setup() {
             base.Setup();
             LobbyButtonManager = ComponentSystem.RegisterComponent<LobbyButton>();
-            this.OnEvent<uFrame.ECS.OnJoinedRoomDispatcher>().Subscribe(_=>{ RoomSystemOnJoinedRoomFilter(_); }).DisposeWith(this);
-            this.OnEvent<uFrame.ECS.OnPhotonJoinRoomFailedDispatcher>().Subscribe(_=>{ RoomSystemOnPhotonJoinRoomFailedFilter(_); }).DisposeWith(this);
+            RoomManager = ComponentSystem.RegisterComponent<Room>();
+            DriverManager = ComponentSystem.RegisterComponent<Driver>();
+            this.OnEvent<uFrame.ECS.OnJoinedRoomDispatcher>().Subscribe(_=>{ PhotonSystemOnJoinedRoomFilter(_); }).DisposeWith(this);
+            this.OnEvent<uFrame.ECS.OnPhotonJoinRoomFailedDispatcher>().Subscribe(_=>{ PhotonSystemOnPhotonJoinRoomFailedFilter(_); }).DisposeWith(this);
+            this.OnEvent<uFrame.Kernel.LevelWasLoadedEvent>().Subscribe(_=>{ PhotonSystemLevelWasLoadedFilter(_); }).DisposeWith(this);
         }
         
-        protected void RoomSystemOnJoinedRoomHandler(uFrame.ECS.OnJoinedRoomDispatcher data, LobbyButton source) {
-            var handler = RoomSystemOnJoinedRoomHandlerInstance;
+        protected void PhotonSystemOnJoinedRoomHandler(uFrame.ECS.OnJoinedRoomDispatcher data, LobbyButton source) {
+            var handler = PhotonSystemOnJoinedRoomHandlerInstance;
             handler.System = this;
             handler.Event = data;
             handler.Source = source;
             StartCoroutine(handler.Execute());
         }
         
-        protected void RoomSystemOnJoinedRoomFilter(uFrame.ECS.OnJoinedRoomDispatcher data) {
+        protected void PhotonSystemOnJoinedRoomFilter(uFrame.ECS.OnJoinedRoomDispatcher data) {
             var SourceLobbyButton = LobbyButtonManager[data.EntityId];
             if (SourceLobbyButton == null) {
                 return;
             }
-            this.RoomSystemOnJoinedRoomHandler(data, SourceLobbyButton);
+            this.PhotonSystemOnJoinedRoomHandler(data, SourceLobbyButton);
         }
         
-        protected void RoomSystemOnPhotonJoinRoomFailedHandler(uFrame.ECS.OnPhotonJoinRoomFailedDispatcher data, LobbyButton source) {
-            var handler = RoomSystemOnPhotonJoinRoomFailedHandlerInstance;
+        protected void PhotonSystemOnPhotonJoinRoomFailedHandler(uFrame.ECS.OnPhotonJoinRoomFailedDispatcher data, LobbyButton source) {
+            var handler = PhotonSystemOnPhotonJoinRoomFailedHandlerInstance;
             handler.System = this;
             handler.Event = data;
             handler.Source = source;
             StartCoroutine(handler.Execute());
         }
         
-        protected void RoomSystemOnPhotonJoinRoomFailedFilter(uFrame.ECS.OnPhotonJoinRoomFailedDispatcher data) {
+        protected void PhotonSystemOnPhotonJoinRoomFailedFilter(uFrame.ECS.OnPhotonJoinRoomFailedDispatcher data) {
             var SourceLobbyButton = LobbyButtonManager[data.EntityId];
             if (SourceLobbyButton == null) {
                 return;
             }
-            this.RoomSystemOnPhotonJoinRoomFailedHandler(data, SourceLobbyButton);
+            this.PhotonSystemOnPhotonJoinRoomFailedHandler(data, SourceLobbyButton);
+        }
+        
+        protected void PhotonSystemLevelWasLoadedHandler(uFrame.Kernel.LevelWasLoadedEvent data, Room group) {
+            var handler = PhotonSystemLevelWasLoadedHandlerInstance;
+            handler.System = this;
+            handler.Event = data;
+            handler.Group = group;
+            StartCoroutine(handler.Execute());
+        }
+        
+        protected void PhotonSystemLevelWasLoadedFilter(uFrame.Kernel.LevelWasLoadedEvent data) {
+            var RoomItems = RoomManager.Components;
+            for (var RoomIndex = 0
+            ; RoomIndex < RoomItems.Count; RoomIndex++
+            ) {
+                this.PhotonSystemLevelWasLoadedHandler(data, RoomItems[RoomIndex]);
+            }
         }
     }
 }

@@ -22,10 +22,12 @@ namespace DireDungeons {
         public override void Load() {
             EcsSystem system = null;
             system = this.AddSystem<UserSystem>();
+            system = this.AddSystem<Camera>();
             system = this.AddSystem<LobbySystem>();
-            system = this.AddSystem<RoomSystem>();
             system = this.AddSystem<PhotonSystem>();
+            system = this.AddSystem<RoomSystem>();
             system = this.AddSystem<Kernel>();
+            system = this.AddSystem<UserInput>();
         }
     }
 }

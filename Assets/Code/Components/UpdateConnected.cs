@@ -28,7 +28,7 @@ namespace DireDungeons {
         
         public int ComponentID {
             get {
-                return 4;
+                return 6;
             }
         }
         

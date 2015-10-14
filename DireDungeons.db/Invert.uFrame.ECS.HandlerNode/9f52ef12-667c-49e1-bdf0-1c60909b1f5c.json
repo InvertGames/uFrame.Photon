@@ -1,0 +1,9 @@
+{
+	"CodeHandler":false	, 
+	"MetaType":"uFrame.ECS.OnPhotonJoinRoomFailedDispatcher"	, 
+	"VariableCount":0	, 
+	"VariableName":"HandlerNode9"	, 
+	"Name":"PhotonSystemOnPhotonJoinRoomFailed"	, 
+	"GraphId":"8ed8715c-1219-4525-b5fd-fa5afc76d77d"	, 
+	"Identifier":"9f52ef12-667c-49e1-bdf0-1c60909b1f5c"	, 
+	"Expanded":false}

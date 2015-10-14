@@ -19,7 +19,7 @@ namespace DireDungeons {
     using UnityEngine;
     
     
-    [uFrame.Attributes.uFrameIdentifier("8cca1ecf-cbc1-427c-a52c-f2cd14390bb4")]
+    [uFrame.Attributes.uFrameIdentifier("1210813a-b803-43ee-a238-e3e0d013bba0")]
     public partial class PhotonComponent : uFrame.ECS.EcsComponent {
         
         private Subject<PhotonView> _PhotonViewObservable;
@@ -29,7 +29,7 @@ namespace DireDungeons {
         
         public int ComponentID {
             get {
-                return 3;
+                return 1;
             }
         }
         

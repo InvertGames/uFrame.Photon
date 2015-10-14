@@ -23,9 +23,7 @@ Loading D:\Unity\DireDungeons\Proto_2\Builds\PC\DireDungeons_Data\Managed\Photon
 Platform assembly: D:\Unity\DireDungeons\Proto_2\Builds\PC\DireDungeons_Data\Managed\Invert.uFrame.dll (this message is harmless)
 Loading D:\Unity\DireDungeons\Proto_2\Builds\PC\DireDungeons_Data\Managed\Invert.uFrame.dll into Unity Child Domain
 Platform assembly: D:\Unity\DireDungeons\Proto_2\Builds\PC\DireDungeons_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.124 seconds
+- Completed reload, in  0.119 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: D:\Unity\DireDungeons\Proto_2\Builds\PC\DireDungeons_Data\Managed\System.dll (this message is harmless)

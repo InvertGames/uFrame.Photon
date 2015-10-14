@@ -12,4 +12,9 @@ namespace uFrame.ECS
     {
         void SystemFixedUpdate();
     }
+	[SystemUFrameEvent("Late Update", "SystemLateUpdate")]
+	public interface ISystemLateUpdate
+	{
+		void SystemLateUpdate();
+	}
 }

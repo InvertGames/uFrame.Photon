@@ -11,11 +11,11 @@ namespace DireDungeons {
     public partial class LoadScene {
         public override void Execute() {
 			EventSystem _EventSystem = EventSystem.current;
-			foreach (EventSystem es in FindObjectsOfType<EventSystem>())
+			foreach (EventSystem es in GameObject.FindObjectsOfType<EventSystem>())
 			{
 				if (_EventSystem.GetInstanceID() != es.GetInstanceID())
 				{
-					Destroy(es.gameObject);
+					GameObject.Destroy(es.gameObject);
 				}
 			}
 			Debug.Log ("Wanting to add scene:"+NewScene);

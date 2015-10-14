@@ -1,0 +1,10 @@
+{
+	"CodeHandler":false	, 
+	"MetaType":"uFrame.ECS.ISystemLateUpdate"	, 
+	"VariableCount":0	, 
+	"VariableName":"HandlerNode8"	, 
+	"Name":"CameraLateUpdate"	, 
+	"Order":0	, 
+	"GraphId":"22bfefea-cabb-4f09-861d-beaf3a2b59ce"	, 
+	"Identifier":"f36b3b2b-7fcf-4f26-ad45-49081ff04a4d"	, 
+	"Expanded":false}

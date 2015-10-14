@@ -99,6 +99,7 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
     private IRepository _repository;
     private IPlatformDrawer _drawer;
     private Dictionary<string, string> _iconsCache;
+    private GUIStyle _componentEditorToolbarButtonStyle;
     //    private UserSettings _currentUser;
 
     public IRepository Repository
@@ -133,6 +134,8 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
 
     }
 
+
+    public TreeViewModel TreeModel { get; set; }
     public void DrawInspector(Object target)
     {
         GUIHelpers.IsInsepctor = true;
@@ -144,7 +147,46 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
                 EditorGUILayout.HelpBox("0 = Auto Assign At Runtime", MessageType.Info);
 
             }
+            //if (GUILayout.Button("Create New Component"))
+            //{
+            //    if (TreeModel == null)
+            //    {
+            //        TreeModel = new TreeViewModel()
+            //        {
+            //            Data = Container.Resolve<IRepository>().AllOf<ModuleNode>().Select(item=>new SelectionMenuItem(item,
+            //                () =>
+            //                {
 
+
+            //                })).Cast<IItem>().ToList()
+            //        };
+            //    }
+            //    else
+            //    {
+            //        TreeModel = null;
+            //    }
+               
+            //}
+            //if (TreeModel != null)
+            //{
+            //     var lastRect = GUILayoutUtility.GetLastRect();
+            //    var rect = GUILayoutUtility.GetRect(lastRect.x, lastRect.y, 300, 500);
+
+	        //    Signal<IDrawTreeView>(_=>_.DrawTreeView(rect,TreeModel,(p,x)=>{
+	        //    	var item = (x as SelectionMenuItem).DataObject as IDiagramNode;
+		    //        Execute(new NavigateToNodeCommand()
+		    //        {
+			//            Node = item as IDiagramNode
+            //        });
+		    //        Execute(new CreateNodeCommand()
+		    //        {
+			//            NodeType = typeof(ComponentNode),
+			//            GraphData = InvertGraphEditor.CurrentDiagramViewModel.GraphData,
+			            
+            //        });
+		    //        TreeModel = null;
+	        //    }));
+            //}
         }
         var component = target as EcsComponent;
         //if (component != null)
@@ -162,8 +204,8 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
                 {
 
                     var inspectorBounds = new Rect(0, 0, Screen.width, Screen.height);
-                    var iconBounds = new Rect().WithSize(16, 16).InnerAlignWithUpperRight(inspectorBounds);
-                    Drawer.DrawImage(iconBounds,"CommandIcon",true);
+                    //var iconBounds = new Rect().WithSize(16, 16).InnerAlignWithUpperRight(inspectorBounds);
+                    //Drawer.DrawImage(iconBounds,"CommandIcon",true);
 
                     //if (GUIHelpers.DoToolbarEx("System Handlers"))
                     //{
@@ -185,6 +227,12 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
                     //}
                     if (GUIHelpers.DoToolbarEx("uFrame Designer"))
                     {
+                        var toolbarButton = ComponentEditorToolbarButtonStyle;
+
+                        EditorGUILayout.BeginHorizontal();
+                        GUILayout.Label("Serving Handlers:");
+                        EditorGUILayout.EndHorizontal();
+
                         foreach (
                    var handlerNode in
                        Repository.All<HandlerNode>()
@@ -192,8 +240,9 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
                         {
                            
                             EditorGUILayout.BeginHorizontal();
+
                             var text = handlerNode.Name;
-                            if (GUILayout.Button(text,EditorStyles.toolbarButton))
+                            if (GUILayout.Button(text,toolbarButton))
                             {
                                 Execute(new NavigateToNodeCommand()
                                 {
@@ -201,19 +250,46 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
                                     Select = true
                                 });
                             }
+                            
+                            var descRect = GUILayoutUtility.GetLastRect();
+
+
+                            //GUILayout.FlexibleSpace();
+
                             var meta = handlerNode.Meta as EventMetaInfo;
-                            if (meta != null && meta.Dispatcher && component.gameObject.GetComponent(meta.SystemType) == null)
+                            if (meta != null && meta.Dispatcher &&
+                                component.gameObject.GetComponent(meta.SystemType) == null)
                             {
-                                if (GUILayout.Button("+ " + meta.SystemType.Name,EditorStyles.toolbarButton))
+                                Drawer.DrawImage(new Rect().WithSize(16, 16).InnerAlignWithCenterLeft(descRect).Translate(4, 0), "RedDotIcon", true);
+
+                                var cb = GUI.backgroundColor;
+                                GUI.backgroundColor = CachedStyles.GetColor(NodeColor.Carrot);
+                                //if (GUILayout.Button("+ " + meta.SystemType.Name,EditorStyles.toolbarButton))
+                                if (GUILayout.Button(new GUIContent("Add", string.Format("Add {0} which is used to invoke the corresponding event", meta.SystemType.Name)), EditorStyles.toolbarButton, GUILayout.Width(60)))
                                 {
 
                                     component.gameObject.AddComponent(meta.SystemType);
                                 }
+                                GUI.backgroundColor = cb;
+
+                            }
+                            else
+                            {
+                                Drawer.DrawImage(new Rect().WithSize(16, 16).InnerAlignWithCenterLeft(descRect).Translate(4, 0), "GreenDotIcon", true);
+                                
                             }
 
                             EditorGUILayout.EndHorizontal();
 
                         }
+
+                        EditorGUILayout.BeginHorizontal();
+                        GUILayout.Label("");
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.BeginHorizontal();
+                        GUILayout.FlexibleSpace();
+                        var cachedBackgroundColor = GUI.backgroundColor;
+                        GUI.backgroundColor = CachedStyles.GetColor(NodeColor.SgiTeal);
                         if (GUILayout.Button("Edit In Designer",EditorStyles.toolbarButton))
                         {
                             Execute(new NavigateToNodeCommand()
@@ -222,6 +298,8 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
                                 Select = true
                             });
                         }
+                        GUI.backgroundColor = cachedBackgroundColor;
+                        EditorGUILayout.EndHorizontal();
                     }
 
 
@@ -233,6 +311,20 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
 
         //}
 
+    }
+
+    public GUIStyle ComponentEditorToolbarButtonStyle
+    {
+        get
+        {
+            return _componentEditorToolbarButtonStyle ??
+                   (_componentEditorToolbarButtonStyle = new GUIStyle(EditorStyles.toolbarButton)
+                   {
+                       alignment = TextAnchor.MiddleLeft,
+                       padding = new RectOffset(24,0,0,0)
+                   });
+        }
+        set { _componentEditorToolbarButtonStyle = value; }
     }
 
     //public class UserSettings : IDataRecord
@@ -284,7 +376,7 @@ public class UnityInspectors : DiagramPlugin, IDrawUnityInspector, IDataRecordPr
             if (attribute != null)
             {
                 var item = Repository.GetSingle<ComponentNode>(attribute.Identifier);
-                IconsCache[typeName] = item.CustomIcon;
+                if(IconsCache != null && item !=null) IconsCache[typeName] = item.CustomIcon;
             }
         }
 

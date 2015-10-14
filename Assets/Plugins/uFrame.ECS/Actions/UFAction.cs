@@ -1,9 +1,8 @@
 using uFrame.ECS;
-using UnityEngine;
 
 namespace uFrame.Actions
 {
-    public abstract class UFAction : MonoBehaviour
+    public abstract class UFAction
     {
         public Entity EntityView;
         public EcsSystem System;

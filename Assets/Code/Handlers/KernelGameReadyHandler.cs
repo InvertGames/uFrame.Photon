@@ -47,7 +47,7 @@ namespace DireDungeons {
         
         public virtual System.Collections.IEnumerator Execute() {
             // PublishEventNode
-            while (this.DebugInfo("","b42d3ce5-547d-4f35-a12d-d7e7d5f9bafd", this) == 1) yield return null;
+            while (this.DebugInfo("d81e5933-b1a3-4d83-abf7-eefd44b20ba9","b42d3ce5-547d-4f35-a12d-d7e7d5f9bafd", this) == 1) yield return null;
             var PublishEventNode2_Event = new LoadSceneEvent();
             PublishEventNode2_Event.SceneName = Group.FirstScene;
             System.Publish(PublishEventNode2_Event);

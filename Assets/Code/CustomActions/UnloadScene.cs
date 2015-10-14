@@ -13,17 +13,18 @@ namespace DireDungeons {
         
         public override void Execute() {
 			EventSystem _EventSystem = EventSystem.current;
-			foreach (EventSystem es in FindObjectsOfType<EventSystem>())
+			foreach (EventSystem es in GameObject.FindObjectsOfType<EventSystem>())
 			{
 				if (_EventSystem.GetInstanceID() != es.GetInstanceID())
 				{
-					Destroy(es.gameObject);
+					GameObject.Destroy(es.gameObject);
 				}
 			}
 			System.Publish (new UnloadSceneCommand(){
 				SceneName = OldScene
 			});
-			Destroy(GameObject.Find (OldScene).gameObject);
+			GameObject sceneObject = GameObject.Find (OldScene);
+			GameObject.Destroy(sceneObject.gameObject);
         }
     }
 }

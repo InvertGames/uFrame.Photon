@@ -122,7 +122,7 @@ namespace Invert.uFrame.ECS.Templates
 
         public bool CanGenerate
         {
-            get { return true; }
+            get { return Ctx.Data.Repository.All<SystemNode>().Any(); }
         }
 
         public void TemplateSetup()
@@ -310,6 +310,7 @@ namespace Invert.uFrame.ECS.Templates
                 if (context == null) continue;
                 CreateFilterProperty(item, context);
             }
+            Ctx.Data.AddProperties(Ctx);
 
         }
 
@@ -407,6 +408,7 @@ namespace Invert.uFrame.ECS.Templates
     [TemplateClass(TemplateLocation.DesignerFile), AsPartial]
     [RequiresNamespace("uFrame.Kernel")]
     [WithMetaInfo]
+    [AutoNamespaces]
     public partial class SystemTemplate : IClassTemplate<SystemNode>, ITemplateCustomFilename
     {
         public string Filename
@@ -458,7 +460,7 @@ namespace Invert.uFrame.ECS.Templates
 
         public void TemplateSetup()
         {
-
+   
         }
 
         public TemplateContext<SystemNode> Ctx { get; set; }
@@ -497,6 +499,19 @@ namespace Invert.uFrame.ECS.Templates
             }
         }
 
+        [TemplateComplete]
+        public void TemplateComplete()
+        {
+            foreach (var item in Ctx.Data.Properties.Where(p => p.HideInUnityInspector))
+            {
+                var field = this.Ctx.CurrentDeclaration.Members.OfType<CodeMemberField>()
+                    .FirstOrDefault(p => p.Name == "_" + item.Name);
+                if (field != null)
+                {
+                    field.CustomAttributes.Add(new CodeAttributeDeclaration(typeof (HideInInspector).ToCodeReference()));
+                }
+            }
+        }
         public TemplateContext<ComponentNode> Ctx { get; set; }
     }
 
@@ -579,6 +594,7 @@ namespace Invert.uFrame.ECS.Templates
 
     [TemplateClass(TemplateLocation.DesignerFile), AsPartial]
     [RequiresNamespace("uFrame.ECS")]
+    [AutoNamespaces]
     public partial class EventTemplate : IClassTemplate<EventNode>, ITemplateCustomFilename
     {
         public IEnumerable<PropertiesChildItem> Properties

@@ -47,9 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\Components\Driver.cs" />
+     <Compile Include="Assets\Code\Components\FollowUser.cs" />
      <Compile Include="Assets\Code\Components\LobbyButton.cs" />
      <Compile Include="Assets\Code\Components\LobbyMenu.cs" />
      <Compile Include="Assets\Code\Components\PhotonComponent.cs" />
+     <Compile Include="Assets\Code\Components\PointInput.cs" />
+     <Compile Include="Assets\Code\Components\Room.cs" />
      <Compile Include="Assets\Code\Components\UpdateConnected.cs" />
      <Compile Include="Assets\Code\CustomActions\EnterRoom.cs" />
      <Compile Include="Assets\Code\CustomActions\EnterRoom.designer.cs" />
@@ -57,10 +60,14 @@
      <Compile Include="Assets\Code\CustomActions\JoinRoom.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\JoinRoomFailed.cs" />
      <Compile Include="Assets\Code\CustomActions\JoinRoomFailed.designer.cs" />
+     <Compile Include="Assets\Code\CustomActions\LateUpdateFollowUser.cs" />
+     <Compile Include="Assets\Code\CustomActions\LateUpdateFollowUser.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\LoadScene.cs" />
      <Compile Include="Assets\Code\CustomActions\LoadScene.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\OnJoinRoom.cs" />
      <Compile Include="Assets\Code\CustomActions\OnJoinRoom.designer.cs" />
+     <Compile Include="Assets\Code\CustomActions\PlayerJoinedRoom.cs" />
+     <Compile Include="Assets\Code\CustomActions\PlayerJoinedRoom.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\ShowLobby.cs" />
      <Compile Include="Assets\Code\CustomActions\ShowLobby.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\TryConnectToPhoton.cs" />
@@ -71,6 +78,8 @@
      <Compile Include="Assets\Code\CustomActions\UnloadScene.designer.cs" />
      <Compile Include="Assets\Code\CustomActions\UpdateConnectionStatus.cs" />
      <Compile Include="Assets\Code\CustomActions\UpdateConnectionStatus.designer.cs" />
+     <Compile Include="Assets\Code\CustomActions\UpdateFollowUser.cs" />
+     <Compile Include="Assets\Code\CustomActions\UpdateFollowUser.designer.cs" />
      <Compile Include="Assets\Code\DireDungeonsLoader.cs" />
      <Compile Include="Assets\Code\Dispatchers\Photon\OnConnectedToMasterDispatcher.cs" />
      <Compile Include="Assets\Code\Dispatchers\Photon\OnConnectedToPhotonDispatcher.cs" />
@@ -101,6 +110,8 @@
      <Compile Include="Assets\Code\Events\LoadSceneEvent.cs" />
      <Compile Include="Assets\Code\Events\OnJoinRoom.cs" />
      <Compile Include="Assets\Code\Events\UnloadSceneEvent.cs" />
+     <Compile Include="Assets\Code\Handlers\CameraLateUpdateHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\CameraUpdateHandler.cs" />
      <Compile Include="Assets\Code\Handlers\KernelGameReadyHandler.cs" />
      <Compile Include="Assets\Code\Handlers\KernelLoadSceneEventHandler.cs" />
      <Compile Include="Assets\Code\Handlers\KernelUnloadSceneEventHandler.cs" />
@@ -108,8 +119,11 @@
      <Compile Include="Assets\Code\Handlers\LobbySystemPointerClickHandler.cs" />
      <Compile Include="Assets\Code\Handlers\LobbySystemUpdateHandler.cs" />
      <Compile Include="Assets\Code\Handlers\PhotonSystemGameReadyHandler.cs" />
-     <Compile Include="Assets\Code\Handlers\RoomSystemOnJoinedRoomHandler.cs" />
-     <Compile Include="Assets\Code\Handlers\RoomSystemOnPhotonJoinRoomFailedHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\PhotonSystemLevelWasLoadedHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\PhotonSystemOnJoinedRoomHandler.cs" />
+     <Compile Include="Assets\Code\Handlers\PhotonSystemOnPhotonJoinRoomFailedHandler.cs" />
+     <Compile Include="Assets\Code\Systems\Camera.cs" />
+     <Compile Include="Assets\Code\Systems\CameraLoader.cs" />
      <Compile Include="Assets\Code\Systems\Kernel.cs" />
      <Compile Include="Assets\Code\Systems\KernelLoader.cs" />
      <Compile Include="Assets\Code\Systems\LobbySystem.cs" />
@@ -118,6 +132,8 @@
      <Compile Include="Assets\Code\Systems\PhotonSystemLoader.cs" />
      <Compile Include="Assets\Code\Systems\RoomSystem.cs" />
      <Compile Include="Assets\Code\Systems\RoomSystemLoader.cs" />
+     <Compile Include="Assets\Code\Systems\UserInput.cs" />
+     <Compile Include="Assets\Code\Systems\UserInputLoader.cs" />
      <Compile Include="Assets\Code\Systems\UserSystem.cs" />
      <Compile Include="Assets\Code\Systems\UserSystemLoader.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />

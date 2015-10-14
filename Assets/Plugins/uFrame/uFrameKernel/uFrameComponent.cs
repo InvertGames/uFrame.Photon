@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using UnityEngine;
 using UniRx;
+using UnityEngine;
 
 namespace uFrame.Kernel
 {
@@ -19,9 +19,7 @@ namespace uFrame.Kernel
     /// 	<para>      }</para>
     /// 	<para>}</para>
     /// </example>
-	/// 
-	/// 
-	public class uFrameComponent : MonoBehaviour, IDisposableContainer
+    public class uFrameComponent : MonoBehaviour, IDisposableContainer
     {
         private CompositeDisposable _disposer;
 

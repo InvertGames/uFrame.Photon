@@ -13,8 +13,10 @@ namespace DireDungeons {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using UniRx;
+    using DireDungeons;
+    using UnityEngine;
     using uFrame.Kernel;
+    using UniRx;
     using uFrame.ECS;
     
     

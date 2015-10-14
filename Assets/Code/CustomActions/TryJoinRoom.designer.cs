@@ -20,10 +20,10 @@ namespace DireDungeons {
     [uFrame.Attributes.ActionTitle("TryJoinRoom")]
     public partial class TryJoinRoom : uFrame.Actions.UFAction {
         
-        [uFrame.Attributes.In("RoomId")]
-        public String RoomId;
-        
         [uFrame.Attributes.In("MaxPlayers")]
         public Int32 MaxPlayers;
+        
+        [uFrame.Attributes.In("RoomId")]
+        public String RoomId;
     }
 }

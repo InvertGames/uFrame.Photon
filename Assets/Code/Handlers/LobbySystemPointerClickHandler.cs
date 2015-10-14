@@ -25,9 +25,9 @@ namespace DireDungeons {
         
         private uFrame.ECS.EcsSystem _System;
         
-        private string ActionNode3_RoomId = default( System.String );
-        
         private int ActionNode3_MaxPlayers = default( System.Int32 );
+        
+        private string ActionNode3_RoomId = default( System.String );
         
         private DireDungeons.TryJoinRoom ActionNode3 = new DireDungeons.TryJoinRoom();
         
@@ -50,13 +50,13 @@ namespace DireDungeons {
         }
         
         public virtual System.Collections.IEnumerator Execute() {
-            ActionNode3_RoomId = Source.RoomId;
             ActionNode3_MaxPlayers = Source.MaxPlayers;
+            ActionNode3_RoomId = Source.RoomId;
             // ActionNode
-            while (this.DebugInfo("37703d78-4f9a-4115-8866-c20950a745b8","3360ff9c-8e01-4268-a11d-0c0f9e72462d", this) == 1) yield return null;
+            while (this.DebugInfo("1e28bd40-5c1e-4783-a79d-cf4ba795e9a9","3360ff9c-8e01-4268-a11d-0c0f9e72462d", this) == 1) yield return null;
             // Visit DireDungeons.TryJoinRoom
-            ActionNode3.RoomId = ActionNode3_RoomId;
             ActionNode3.MaxPlayers = ActionNode3_MaxPlayers;
+            ActionNode3.RoomId = ActionNode3_RoomId;
             ActionNode3.System = System;
             ActionNode3.Execute();
             yield break;

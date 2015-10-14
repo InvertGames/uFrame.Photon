@@ -36,6 +36,9 @@ namespace uFrame.Kernel
                     lastProgress = asyncOperation.progress;
                 }
                 yield return new WaitForSeconds(0.1f);
+				EventAggregator.Publish (new LevelWasLoadedEvent (){
+					SceneId = sceneName
+				});
             }
         }
 
@@ -180,6 +183,11 @@ namespace uFrame.Kernel
 
         }
     }
+
+	[uFrameEvent("Level Was Loaded")]
+	public class LevelWasLoadedEvent{
+		public string SceneId;
+	}
 
     public class SystemsLoadedEvent
     {

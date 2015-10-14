@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using uFrame.Actions.Attributes;
 using uFrame.Attributes;
 using uFrame.ECS;
@@ -11,27 +12,37 @@ namespace uFrame.Actions
     public static class Comparisons
     {
         [ActionTitle("Is True")]
-        public static void IsTrue(bool value, Action yes, Action no)
+        [ActionDescription("Compare any incoming value with true")]
+        public static void IsTrue(
+            [Description("Value to compare")] bool value,
+            [Description("Connect any action to be invoked, if value is true.")] Action yes,
+            [Description("Connect any action to be invoked, if value is false.")] Action no)
         {
             if (value)
             {
                 if (yes != null) yes();
 
             }
-                
+
                 else
                 {
                     if (no != null) no();
                 }
         }
+
         [ActionTitle("Compare Floats")]
+        [ActionDescription("Compare any two floats")]
+
         public static bool CompareFloats(float a, float b)
         {
             return a == b;
         }
-    
+
         [ActionTitle("Less Than")]
-        public static bool LessThan(float a, float b, Action yes, Action no)
+        [ActionDescription("Compare any two floats and continue execution with a certain branch")]
+        public static bool LessThan(float a, float b,
+            [Description("Invoked if a is less than b")] Action yes,
+            [Description("Invoked if a is equal or greater than b")] Action no)
         {
             if (a < b)
             {
@@ -42,12 +53,15 @@ namespace uFrame.Actions
             {
                 if (no != null) no();
             }
-          
+
             return false;
         }
 
         [ActionTitle("Less Than Or Equal")]
-        public static bool LessThanOrEqual(float a, float b, Action yes, Action no)
+        [ActionDescription("Compare any two floats and continue execution with a certain branch")]
+        public static bool LessThanOrEqual(float a, float b,
+            [Description("Invoked if a is less than or equal to b")] Action yes,
+            [Description("Invoked if a is greater than b")] Action no)
         {
             if (a <= b)
             {
@@ -58,12 +72,15 @@ namespace uFrame.Actions
             {
                 if (no != null) no();
             }
-           
+
             return false;
         }
 
         [ActionTitle("Greater Than")]
-        public static bool GreaterThan(float a, float b, Action yes, Action no)
+        [ActionDescription("Compare any two floats and continue execution with a certain branch")]
+        public static bool GreaterThan(float a, float b,
+            [Description("Invoked if a is greater than b")] Action yes,
+            [Description("Invoked if a is less than or equal to b")] Action no)
         {
             if (a > b)
             {
@@ -74,12 +91,15 @@ namespace uFrame.Actions
             {
                 if (no != null) no();
             }
-            
+
             return false;
         }
 
         [ActionTitle("Greater Than Or Equal")]
-        public static bool GreaterThanOrEqual(float a, float b, Action yes, Action no)
+        [ActionDescription("Compare any two floats and continue execution with a certain branch")]
+        public static bool GreaterThanOrEqual(float a, float b,
+            [Description("Invoked if a is greater than or equal to b")] Action yes,
+            [Description("Invoked if a is less than b")] Action no)
         {
             if (a >= b)
             {
@@ -90,12 +110,15 @@ namespace uFrame.Actions
             {
                 if (no != null) no();
             }
-        
+
             return false;
         }
 
         [ActionTitle("Equal")]
-        public static bool AreEqual(object a, object b, Action yes, Action no)
+        [ActionDescription("Compare any two floats and continue execution with a certain branch")]
+        public static bool AreEqual(object a, object b,
+            [Description("Invoked if a equals b")] Action yes,
+            [Description("Invoked if a is not equal to b")] Action no)
         {
             var result = false;
             if ((a == null || b == null))
@@ -126,7 +149,7 @@ namespace uFrame.Actions
     [ActionLibrary, uFrameCategory("Components")]
     public static class UnityLibrary
     {
-  
+
         [ActionTitle("Get Unity Component")]
         public static Type GetUnityComponent<Type>(GameObject go, MonoBehaviour component)
         {
@@ -165,25 +188,30 @@ namespace uFrame.Actions
             return Camera.main;
         }
     }
+
     [ActionLibrary, uFrameCategory("Loops")]
     public static class LoopsLibrary
     {
         [ActionTitle("Loop Collection")]
-        public static void LoopCollection(IList list, out object item, Action next)
+        public static void LoopCollection(
+            [Description("A list which you are going to iterate over.")]IList list,
+            [Description("On each iteration, item will be set to the corresponding element from the list.")] out object item,
+            [Description("Connect an action, which will be invoked on each iteration.")] Action next)
         {
             item = null;
             for (var i = 0; i < list.Count; i++)
             {
                 item = list[i];
                 next();
-            } 
+            }
         }
     }
+
 
     [ActionLibrary, uFrameCategory("Input")]
     public static class InputLibrary
     {
-        [ActionTitle("Is Key Down")]
+        [ActionTitle("Is Key Down"), ActionDescription("Check if key is down")]
         public static bool IsKeyDown(KeyCode key, Action yes, Action no)
         {
             var result = Input.GetKeyDown(key);
@@ -198,16 +226,16 @@ namespace uFrame.Actions
             }
             return result;
         }
-        [ActionTitle("Is Key")]
+        [ActionTitle("Is Key"), ActionDescription("Check if key is hold")]
         public static bool IsKey(KeyCode key, Action yes, Action no)
         {
             var result = Input.GetKey(key);
             if (result)
             {
                 if (yes != null) yes();
-                
+
             }
-               
+
                 else
                 {
                     if (no != null)
@@ -215,7 +243,7 @@ namespace uFrame.Actions
                 }
             return Input.GetKey(key);
         }
-        [ActionTitle("Is Key Up")]
+        [ActionTitle("Is Key Up"), ActionDescription("Check if key is up")]
         public static bool IsKeyUp(KeyCode key, Action yes, Action no)
         {
             var result = Input.GetKeyUp(key);
@@ -223,7 +251,7 @@ namespace uFrame.Actions
             {
                 if (yes != null) yes();
             }
-                
+
                 else
                 {
                     if (no != null)
@@ -246,11 +274,18 @@ namespace uFrame.Actions
         {
             rigidBody.velocity = new Vector3(x, y, z) * speed;
         }
-        [ActionTitle("Set Rigidbody Position")]
+        [ActionTitle("Set Rigidbody Position (Floats)")]
         public static void SetRigidbodyPosition(Rigidbody rigidBody, float x, float y, float z)
         {
             rigidBody.position = new Vector3(x, y, z);
         }
+
+        [ActionTitle("Set Rigidbody Position (Vector)")]
+        public static void SetRigidbodyPosition(Rigidbody rigidBody, Vector3 vector)
+        {
+            rigidBody.position = vector;
+        }
+
         [ActionTitle("Set Rigidbody Rotation")]
         public static void SetRigidbodyRotation(Rigidbody rigidBody, float x, float y, float z)
         {
@@ -282,8 +317,46 @@ namespace uFrame.Actions
             return Time.fixedDeltaTime;
         }
     }
-    
 
+    [ActionLibrary, uFrameCategory("Convert")]
+    public static class Converter
+    {
+        [ActionTypeConverter()]
+        public static string ConvertToString(object obj)
+        {
+            return obj.ToString();
+        }
+        [ActionTypeConverter()]
+        public static int FloatToInt(float @in)
+        {
+            return (int) @in;
+        }
+        [ActionTypeConverter()]
+        public static float IntToFloat(int @in)
+        {
+            return @in;
+        }
+        [ActionTypeConverter()]
+        public static int StringToInt(string @in, NumberStyles style)
+        {
+            return int.Parse(@in,style);
+        }
+        [ActionTypeConverter()]
+        public static float StringToFloat(string @in, NumberStyles style)
+        {
+            return float.Parse(@in, style);
+        }
+        [ActionTypeConverter()]
+        public static DateTime StringToDateTime(string @in)
+        {
+            return DateTime.Parse(@in);
+        }
+        [ActionTypeConverter()]
+        public static bool StringToBool(string @in)
+        {
+            return bool.Parse(@in);
+        }
+    }
 
 }
 
